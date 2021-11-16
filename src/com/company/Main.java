@@ -95,13 +95,39 @@ public class Main {
         EmployeesEducation ee2019 = new EmployeesEducation(2019);
         EmployeesEducation ee2020 = new EmployeesEducation(2020);
 
+        EmployeesEducation[] employeesEducations = {
+                ee2006,ee2007,ee2008,ee2009,ee2010,ee2011,
+                ee2012,ee2013,ee2014,ee2015,ee2016,ee2017,
+                ee2018,ee2019,ee2020
+        };
+
         String[] lines = data.split("\n");
         //System.out.println(lines[1]);
 
         for (int i = 1; i < lines.length; i++) {
             String[] words = lines[i].split(",");
-            //System.out.println(words[3]);
-            if (words[0].compareTo("2006")==0){
+            System.out.println(words[0]);
+            int year = Integer.parseInt(words[0]);
+            if (words[1].compareTo("VOS")==0){
+                employeesEducations[year-2006].setVosCount(Integer.parseInt(words[3]));
+            }
+            if (words[1].compareTo("VS")==0){
+                employeesEducations[year-2006].setVsCount(Integer.parseInt(words[3]));
+            }
+            if (words[1].compareTo("USO")==0){
+                employeesEducations[year-2006].setUsoCount(Integer.parseInt(words[3]));
+            }
+            if (words[1].compareTo("ZAK")==0){
+                employeesEducations[year-2006].setZakCount(Integer.parseInt(words[3]));
+            }
+            if (words[1].compareTo("SO")==0){
+                employeesEducations[year-2006].setSoCount(Integer.parseInt(words[3]));
+            }
+            if (words[1].compareTo("VOV")==0){
+                employeesEducations[year-2006].setVovCount(Integer.parseInt(words[3]));
+            }
+
+            /*if (words[0].compareTo("2006")==0){
                 if (words[1].compareTo("VOS")==0){
                     ee2006.setVosCount(Integer.parseInt(words[3]));
                 }
@@ -400,7 +426,7 @@ public class Main {
                 if (words[1].compareTo("VOV")==0){
                     ee2020.setVovCount(Integer.parseInt(words[3]));
                 }
-            }
+            }*/
         }
         System.out.println(ee2006.toString());
         System.out.println(ee2006.toRatioString());
